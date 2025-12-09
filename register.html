@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar - Mahasiswa UNPER</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/theme-login-fix.css">
+</head>
+<body>
+    <div class="login-page-simple">
+        <div class="login-container">
+            <div class="login-header">
+                <div class="logo-container">
+                    <img src="images/Unper.png" alt="Logo UNPER" class="logo-img">
+                </div>
+                <h1>Mahasiswa UNPER</h1>
+                <p>Sistem Manajemen Tugas & Jadwal Kuliah</p>
+            </div>
+
+            <form class="login-form" id="registerForm">
+                <div class="form-group">
+                    <label for="name"><i class="fas fa-user"></i> Nama Lengkap</label>
+                    <input type="text" id="name" name="name" placeholder="Masukkan nama lengkap Anda" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email"><i class="fas fa-envelope"></i> Email</label>
+                    <input type="email" id="email" name="email" placeholder="Masukkan email Anda" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="nim"><i class="fas fa-id-card"></i> NIM</label>
+                    <input type="text" id="nim" name="nim" placeholder="Masukkan NIM Anda" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="faculty"><i class="fas fa-university"></i> Fakultas</label>
+                    <select id="faculty" name="faculty" required>
+                        <option value="">Pilih Fakultas</option>
+                        <option value="Fakultas Teknik">Fakultas Teknik</option>
+                        <option value="Fakultas Ekonomi dan Bisnis">Fakultas Ekonomi dan Bisnis</option>
+                        <option value="Fakultas Pertanian dan Peternakan">Fakultas Pertanian dan Peternakan</option>
+                        <option value="Fakultas Keguruan dan Ilmu Pendidikan">Fakultas Keguruan dan Ilmu Pendidikan</option>
+                        <option value="Fakultas Ilmu Kesehatan">Fakultas Ilmu Kesehatan</option>
+                        <option value="Fakultas Hukum">Fakultas Hukum</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="major"><i class="fas fa-graduation-cap"></i> Jurusan</label>
+                    <select id="major" name="major" required>
+                        <option value="">Pilih Jurusan</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="password"><i class="fas fa-lock"></i> Password</label>
+                    <input type="password" id="password" name="password" placeholder="Masukkan password Anda" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword"><i class="fas fa-lock"></i> Konfirmasi Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Konfirmasi password Anda" required>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-user-plus"></i> Daftar
+                    </button>
+                </div>
+            </form>
+
+            <div class="register-section">
+                <p>Sudah punya akun? <a href="login.html" id="loginLink">Login di sini</a></p>
+            </div>
+
+            <div class="privacy-notice">
+                <p><i class="fas fa-shield-alt"></i> Dengan mendaftar, Anda menyetujui <a href="privacy-policy.html">Kebijakan Privasi</a> kami.</p>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Pastikan tema gelap tidak diterapkan di halaman register meskipun tersimpan di localStorage
+        document.addEventListener('DOMContentLoaded', function() {
+            // Hapus kelas tema gelap dari body untuk halaman register
+            if (document.body.classList.contains('dark-theme')) {
+                document.body.classList.remove('dark-theme');
+            }
+
+            // Tambahkan class untuk mengidentifikasi halaman register
+            document.body.classList.add('register-page');
+        });
+
+        // Fungsi untuk mencegah tema gelap diterapkan secara otomatis
+        function preventDarkTheme() {
+            // Jika kelas dark-theme ditambahkan ke body, hapus lagi
+            if (document.body.classList.contains('dark-theme')) {
+                document.body.classList.remove('dark-theme');
+            }
+        }
+
+        // Monitor perubahan kelas di body
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+                    if (document.body.classList.contains('dark-theme')) {
+                        setTimeout(preventDarkTheme, 0);
+                    }
+                }
+            });
+        });
+
+        observer.observe(document.body, {
+            attributes: true,
+            attributeFilter: ['class']
+        });
+    </script>
+
+    <script src="js/auth.js"></script>
+</body>
+</html>

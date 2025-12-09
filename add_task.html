@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Tugas - Mahasiswa UNPER</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="main-header">
+            <div class="header-content">
+                <h1>Tambah Tugas Baru</h1>
+                <p>Lengkapi informasi tugas untuk mengaturnya dengan baik</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <form id="task-form">
+                <div class="form-group">
+                    <label for="task-title">Judul Tugas</label>
+                    <input type="text" id="task-title" name="title" placeholder="Tulis judul tugas..." required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="task-description">Deskripsi</label>
+                    <textarea id="task-description" name="description" placeholder="Jelaskan tugas secara detail (opsional)"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="task-category">Mata Kuliah / Kategori</label>
+                    <select id="task-category" name="category" required>
+                        <option value="">Pilih Kategori</option>
+                        <option value="Tugas Kuliah">Tugas Kuliah</option>
+                        <option value="Ujian">Ujian</option>
+                        <option value="Projek">Projek</option>
+                        <option value="Organisasi">Organisasi</option>
+                        <option value="Personal">Personal</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="deadline-date">Tanggal Deadline</label>
+                    <input type="date" id="deadline-date" name="deadlineDate" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="deadline-time">Waktu Deadline</label>
+                    <input type="time" id="deadline-time" name="deadlineTime" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Prioritas</label>
+                    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                        <label class="priority-option" style="flex: 1; text-align: center; padding: 10px; border: 2px solid #ddd; border-radius: 8px; cursor: pointer;">
+                            <input type="radio" name="priority" value="rendah" style="display: none;">
+                            <div><i class="fas fa-arrow-down"></i></div>
+                            <div>Rendah</div>
+                        </label>
+                        <label class="priority-option" style="flex: 1; text-align: center; padding: 10px; border: 2px solid #ddd; border-radius: 8px; cursor: pointer;">
+                            <input type="radio" name="priority" value="sedang" style="display: none;" checked>
+                            <div><i class="fas fa-equals"></i></div>
+                            <div>Sedang</div>
+                        </label>
+                        <label class="priority-option" style="flex: 1; text-align: center; padding: 10px; border: 2px solid #ddd; border-radius: 8px; cursor: pointer;">
+                            <input type="radio" name="priority" value="tinggi" style="display: none;">
+                            <div><i class="fas fa-arrow-up"></i></div>
+                            <div>Tinggi</div>
+                        </label>
+                        <label class="priority-option" style="flex: 1; text-align: center; padding: 10px; border: 2px solid #ddd; border-radius: 8px; cursor: pointer;">
+                            <input type="radio" name="priority" value="mendesak" style="display: none;">
+                            <div><i class="fas fa-exclamation-triangle"></i></div>
+                            <div>Mendesak</div>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group reminder-toggle">
+                    <input type="checkbox" id="enable-reminder" name="reminder">
+                    <label for="enable-reminder">Aktifkan Pengingat</label>
+                </div>
+                
+                
+                <div class="form-group">
+                    <label>Lampiran</label>
+                    <input type="file" id="attachment-input" style="display: none;" multiple>
+                    <button type="button" class="btn btn-outline" id="attach-btn">
+                        <i class="fas fa-paperclip"></i> Pilih File/Foto
+                    </button>
+                    <div id="attachment-preview" style="margin-top: 10px;">
+                        <!-- Preview lampiran akan muncul di sini -->
+                    </div>
+                </div>
+                
+                <div class="form-group" style="display: flex; gap: 10px;">
+                    <button type="button" class="btn btn-outline" id="cancel-btn">Batal</button>
+                    <button type="submit" class="btn btn-primary">Simpan Tugas</button>
+                </div>
+            </form>
+        </main>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <a href="home.html" class="nav-item">
+                <i class="fas fa-home"></i>
+                <span>Beranda</span>
+            </a>
+            <a href="calendar.html" class="nav-item">
+                <i class="fas fa-calendar"></i>
+                <span>Kalender</span>
+            </a>
+            <a href="add_task.html" class="nav-item active">
+                <i class="fas fa-plus-circle"></i>
+                <span>Tambah</span>
+            </a>
+            <a href="tasks.html" class="nav-item">
+                <i class="fas fa-tasks"></i>
+                <span>Tugas</span>
+            </a>
+            <a href="profile.html" class="nav-item">
+                <i class="fas fa-user"></i>
+                <span>Profil</span>
+            </a>
+        </nav>
+    </div>
+
+    <script src="js/add_task.js"></script>
+</body>
+</html>

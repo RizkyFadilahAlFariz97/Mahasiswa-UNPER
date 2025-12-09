@@ -1,0 +1,104 @@
+/* Solusi yang lebih baik: Mencegah tema gelap diterapkan ke halaman login, register, dan index */
+body.login-page-simple.dark-theme,
+body.login-page-simple.dark-theme *,
+body.login-page-simple.dark-theme .login-container,
+body.login-page-simple.dark-theme .login-header,
+body.login-page-simple.dark-theme .form-group,
+body.login-page-simple.dark-theme input,
+body.login-page-simple.dark-theme button,
+body.login-page-simple.dark-theme a {
+    background: inherit !important;
+    color: inherit !important;
+}
+
+/* Ganti tema gelap secara spesifik untuk halaman login agar kembali ke tema terang */
+body.login-page-simple.dark-theme {
+    background: linear-gradient(135deg, var(--bg-light), #e8f5e9) !important;
+    color: var(--text-dark) !important;
+}
+
+body.login-page-simple.dark-theme .login-container {
+    background: white !important;
+    color: var(--text-dark) !important;
+}
+
+body.login-page-simple.dark-theme .login-header h1 {
+    color: var(--primary-color) !important;
+}
+
+body.login-page-simple.dark-theme .login-header p {
+    color: var(--text-light) !important;
+}
+
+body.login-page-simple.dark-theme .form-group label {
+    color: var(--text-dark) !important;
+}
+
+body.login-page-simple.dark-theme .form-group input {
+    background: white !important;
+    color: var(--text-dark) !important;
+    border-color: #ddd !important;
+}
+
+body.login-page-simple.dark-theme .btn-primary {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+}
+
+body.login-page-simple.dark-theme .btn-primary:hover {
+    background-color: var(--secondary-color) !important;
+}
+
+body.login-page-simple.dark-theme .forgot-password a,
+body.login-page-simple.dark-theme .register-section a {
+    color: var(--primary-color) !important;
+}
+
+body.login-page-simple.dark-theme .welcome-footer a,
+body.login-page-simple.dark-theme .privacy-notice a {
+    color: var(--primary-color) !important;
+}
+
+/* Atur tinggi dan margin untuk tampilan yang proporsional */
+body.login-page-simple.dark-theme .form-group {
+    margin-bottom: 15px !important;
+}
+
+body.login-page-simple.dark-theme .btn {
+    padding: 14px 20px !important;
+    width: 100% !important;
+}
+
+/* Fix untuk tampilan login-options */
+body.login-page-simple.dark-theme .login-options {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin-top: 10px !important;
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+}
+
+body.login-page-simple.dark-theme .forgot-password,
+body.login-page-simple.dark-theme .register-section {
+    flex: 1 !important;
+    text-align: left !important;
+}
+
+body.login-page-simple.dark-theme .register-section {
+    text-align: right !important;
+}
+
+body.login-page-simple.dark-theme .privacy-notice {
+    border-top-color: #eee !important;
+    color: var(--text-light) !important;
+}
+
+/* Tambahan fix untuk mencegah konflik dengan sistem tema umum */
+body.login-page-simple.dark-theme .setting-item,
+body.login-page-simple.dark-theme .edit-form,
+body.login-page-simple.dark-theme .stat-card,
+body.login-page-simple.dark-theme .task-card {
+    background: initial !important;
+    color: initial !important;
+}

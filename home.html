@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Beranda - Mahasiswa UNPER</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="main-header">
+            <div class="header-content">
+                <h1>HALLO, <span id="user-name">[Nama]</span></h1>
+                <p style="margin: 10px 0 5px; font-size: 1rem;">Mulai dengan satu langkah kecil.</p>
+                <p style="margin: 5px 0; font-size: 0.9rem;">Tulis, kerjakan, selesaikan.</p>
+                <p style="margin: 5px 0 15px; font-size: 0.9rem;">Hari ini adalah kanvas kosong isi dengan hal bermakna.</p>
+                <p id="current-date">-</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="quick-stats">
+                <div class="stat-card">
+                    <h3>Total Tugas Aktif</h3>
+                    <p id="total-tasks">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Deadline Hari Ini</h3>
+                    <p id="today-deadlines">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Tugas Telat</h3>
+                    <p id="late-tasks">0</p>
+                </div>
+            </div>
+
+            <section class="urgent-tasks">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                    <h2>Tugas Mendesak/Hari Ini</h2>
+                    <a href="tasks.html" style="font-size: 0.9rem; color: var(--primary-color); text-decoration: none;">Lihat Semua</a>
+                </div>
+                <div id="urgent-tasks-list">
+                    <!-- Daftar tugas mendesak akan dimunculkan di sini -->
+                    <p class="no-tasks">Tidak ada tugas mendesak saat ini</p>
+                </div>
+            </section>
+
+            <section class="schedule-section" style="margin-top: 25px;">
+                <h2>Jadwal Kuliah Minggu Ini</h2>
+                <div id="weekly-schedule">
+                    <!-- Jadwal kuliah akan dimunculkan di sini -->
+                    <p class="no-tasks">Memuat jadwal kuliah...</p>
+                </div>
+            </section>
+        </main>
+
+        <!-- Floating Action Button -->
+        <button class="fab" id="add-task-btn">
+            <i class="fas fa-plus"></i>
+        </button>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <a href="home.html" class="nav-item active">
+                <i class="fas fa-home"></i>
+                <span>Beranda</span>
+            </a>
+            <a href="calendar.html" class="nav-item">
+                <i class="fas fa-calendar"></i>
+                <span>Kalender</span>
+            </a>
+            <a href="add_task.html" class="nav-item">
+                <i class="fas fa-plus-circle"></i>
+                <span>Tambah</span>
+            </a>
+            <a href="tasks.html" class="nav-item">
+                <i class="fas fa-tasks"></i>
+                <span>Tugas</span>
+            </a>
+            <a href="profile.html" class="nav-item">
+                <i class="fas fa-user"></i>
+                <span>Profil</span>
+            </a>
+        </nav>
+
+        <!-- Privacy Policy Link in footer -->
+        <div class="privacy-footer-link">
+            <p style="text-align: center; padding: 10px; font-size: 0.75rem; color: var(--text-light);">
+                <a href="privacy-policy.html" style="color: var(--text-light); text-decoration: none;">Kebijakan Privasi</a>
+            </p>
+        </div>
+    </div>
+
+    <script src="js/home.js"></script>
+</body>
+</html>

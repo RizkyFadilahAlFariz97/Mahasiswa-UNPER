@@ -1,0 +1,1494 @@
+/* Reset dan variabel CSS */
+:root {
+    /* Warna primer hijau muda */
+    --primary-color: #4CAF50; /* Hijau muda */
+    --secondary-color: #8BC34A; /* Hijau muda lainnya */
+
+    /* Warna pendukung */
+    --success-color: #2E7D32; /* Hijau gelap untuk selesai */
+    --danger-color: #FF5252; /* Merah untuk mendesak */
+    --warning-color: #FFA000; /* Kuning/orange untuk tinggi */
+    --info-color: #00BCD4; /* Biru muda */
+
+    /* Warna teks */
+    --text-dark: #333;
+    --text-light: #666;
+    --text-white: #fff;
+
+    /* Latar belakang */
+    --bg-light: #f1f8e9; /* Hijau muda sangat terang */
+    --bg-white: #ffffff;
+
+    /* Warna untuk tema gelap */
+    --dark-bg: #121212;
+    --dark-surface: #1e1e1e;
+    --dark-text: #e0e0e0;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* Container utama */
+.app-container {
+    max-width: 500px;
+    margin: 0 auto;
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 80px; /* Ruang untuk bottom navigation */
+}
+
+/* Header */
+.main-header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.header-content h1 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.header-content p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* Konten utama */
+.main-content {
+    padding: 20px;
+}
+
+/* Statistik cepat */
+.quick-stats {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.stat-card {
+    background: var(--bg-white);
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    flex: 1;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    border-left: 4px solid var(--primary-color);
+}
+
+.stat-card h3 {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-bottom: 5px;
+}
+
+.stat-card p {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+/* Bagian tugas mendesak */
+.urgent-tasks h2 {
+    margin-bottom: 15px;
+    color: var(--text-dark);
+    font-size: 1.2rem;
+}
+
+#urgent-tasks-list {
+    background: var(--bg-white);
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.task-card {
+    background: var(--bg-white);
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border-left: 4px solid var(--info-color); /* Default warna */
+    display: flex;
+    align-items: center;
+}
+
+.task-card.priority-mendesak {
+    border-left-color: var(--danger-color);
+}
+
+.task-card.priority-tinggi {
+    border-left-color: var(--warning-color);
+}
+
+.task-card.priority-sedang {
+    border-left-color: var(--info-color);
+}
+
+.task-card.priority-rendah {
+    border-left-color: #6c757d;
+}
+
+.task-card .task-checkbox {
+    margin-right: 10px;
+}
+
+.task-card .task-info {
+    flex: 1;
+}
+
+.task-card .task-title {
+    font-weight: 500;
+    margin-bottom: 3px;
+}
+
+.task-card .task-course {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    background: var(--bg-light);
+    padding: 2px 6px;
+    border-radius: 10px;
+    display: inline-block;
+    margin-right: 8px;
+}
+
+.task-card .task-deadline {
+    font-size: 0.8rem;
+    color: var(--text-light);
+}
+
+.no-tasks {
+    text-align: center;
+    color: var(--text-light);
+    padding: 20px 0;
+    font-style: italic;
+}
+
+/* Floating Action Button */
+.fab {
+    position: fixed;
+    bottom: 70px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    cursor: pointer;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.fab:hover {
+    background-color: #002244;
+    transform: scale(1.05);
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    border-top: 1px solid #eee;
+    height: 60px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: var(--text-light);
+    font-size: 0.7rem;
+}
+
+.nav-item.active {
+    color: var(--primary-color);
+}
+
+.nav-item i {
+    font-size: 1.2rem;
+    margin-bottom: 3px;
+}
+
+/* Form styles */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+}
+
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.btn {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-outline:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Halaman login sederhana */
+.login-page-simple {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--bg-light), #e8f5e9);
+    padding: 20px;
+}
+
+.login-container {
+    max-width: 450px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 40px 30px;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.login-header h1 {
+    color: var(--primary-color);
+    margin-bottom: 5px;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.login-header p {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+/* Styling untuk container halaman index */
+.index-page .login-header h1 {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+}
+
+.index-page .login-header p {
+    font-size: 0.95rem;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.login-form .form-group:last-child {
+    margin-bottom: 0;
+}
+
+/* Styling untuk label dengan ikon */
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.form-group label i {
+    margin-right: 8px;
+    color: var(--primary-color);
+}
+
+/* Styling untuk tombol login dengan ikon */
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+.btn-primary i {
+    margin-right: 8px;
+}
+
+/* Styling untuk link lupa password dan daftar */
+.login-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.forgot-password {
+    flex: 1;
+    text-align: left;
+}
+
+.register-section {
+    flex: 1;
+    text-align: right;
+}
+
+.forgot-password a,
+.register-section a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.forgot-password a:hover,
+.register-section a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+.forgot-password a i,
+.register-section a i {
+    margin-right: 5px;
+}
+
+/* Untuk tampilan mobile, buat menjadi satu kolom */
+@media (max-width: 500px) {
+    .login-options {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .forgot-password,
+    .register-section {
+        text-align: center;
+    }
+}
+
+/* Styling khusus untuk halaman index/welcome */
+.welcome-options {
+    display: flex;
+    gap: 15px;
+    margin: 25px 0;
+    flex-wrap: wrap;
+}
+
+.welcome-options .form-group {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+.welcome-options .btn {
+    width: 100%;
+    padding: 16px 10px;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.welcome-options .btn i {
+    margin-right: 8px;
+}
+
+.welcome-options .btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    border: 2px solid var(--primary-color);
+}
+
+.welcome-options .btn-outline {
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.welcome-options .btn-outline:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.welcome-options .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+.welcome-footer {
+    text-align: center;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+.welcome-footer a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.welcome-footer a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+.welcome-footer a i {
+    margin-right: 5px;
+}
+
+/* Styling untuk notifikasi kebijakan privasi */
+.privacy-notice {
+    text-align: center;
+    margin-top: 15px;
+    padding: 10px;
+    font-size: 0.85rem;
+    color: var(--text-light);
+    border-top: 1px solid #eee;
+}
+
+.privacy-notice p {
+    margin: 0;
+}
+
+.privacy-notice a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.privacy-notice a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+.privacy-notice i {
+    margin-right: 5px;
+    color: var(--primary-color);
+}
+
+/* Styling untuk halaman kebijakan privasi */
+.privacy-content {
+    margin: 20px 0;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.privacy-section {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.privacy-section:last-child {
+    border-bottom: none;
+}
+
+.privacy-section h2 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+}
+
+.privacy-section h2 i {
+    margin-right: 10px;
+    color: var(--primary-color);
+}
+
+.privacy-section p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.privacy-section ul {
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+.privacy-section li {
+    margin-bottom: 5px;
+    line-height: 1.5;
+}
+
+.privacy-footer {
+    text-align: center;
+    margin: 15px 0;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+    color: var(--text-light);
+    font-size: 0.8rem;
+}
+
+/* Responsif untuk halaman index */
+@media (max-width: 400px) {
+    .welcome-options {
+        flex-direction: column;
+    }
+}
+
+/* Styling untuk form edit profil yang disembunyikan */
+.edit-form {
+    margin-top: 10px;
+    padding: 15px;
+    background: var(--bg-light);
+    border-radius: 8px;
+}
+
+.edit-form input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 10px;
+}
+
+.edit-form .btn {
+    padding: 10px;
+    font-size: 0.9rem;
+    border-radius: 8px;
+    margin: 0 2px;
+}
+
+.setting-item {
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.setting-item:hover {
+    background-color: #f9f9f9;
+}
+
+.setting-item.active {
+    background-color: #f0f8ff;
+}
+
+/* Responsif untuk edit form */
+@media (max-width: 500px) {
+    .edit-form .btn {
+        padding: 12px;
+        font-size: 1rem; /* Membuat tombol lebih besar di mobile */
+    }
+
+    .edit-form .btn {
+        margin-bottom: 5px;
+    }
+}
+
+/* Styling untuk input dengan ikon */
+.form-group input {
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2);
+}
+
+/* Toggle untuk pengingat */
+.reminder-toggle {
+    display: flex;
+    align-items: center;
+}
+
+.reminder-toggle input[type="checkbox"] {
+    width: auto;
+    margin-right: 10px;
+}
+
+/* Warna untuk tema gelap - kecuali halaman login */
+body.dark-theme {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+}
+
+body.dark-theme .main-header {
+    background: linear-gradient(135deg, #2E7D32, #1B5E20);
+}
+
+body.dark-theme .stat-card,
+body.dark-theme #urgent-tasks-list,
+body.dark-theme .task-card {
+    background: var(--dark-surface);
+    color: var(--dark-text);
+}
+
+body.dark-theme .form-group input,
+body.dark-theme .form-group textarea,
+body.dark-theme .form-group select {
+    background: var(--dark-surface);
+    color: var(--dark-text);
+    border-color: #333;
+}
+
+body.dark-theme .bottom-nav {
+    background-color: var(--dark-surface);
+    border-top-color: #333;
+}
+
+body.dark-theme .nav-item {
+    color: var(--dark-text);
+}
+
+/* Tambahkan warna teks untuk elemen-elemen umum di tema gelap */
+body.dark-theme h1,
+body.dark-theme h2,
+body.dark-theme h3,
+body.dark-theme h4,
+body.dark-theme h5,
+body.dark-theme h6 {
+    color: var(--dark-text);
+}
+
+body.dark-theme .urgent-tasks h2,
+body.dark-theme .daily-tasks h2 {
+    color: var(--dark-text);
+}
+
+body.dark-theme .task-card .task-title {
+    color: var(--dark-text);
+}
+
+body.dark-theme .task-card .task-course {
+    background: #333;
+    color: var(--dark-text);
+}
+
+body.dark-theme .task-card .task-deadline {
+    color: var(--dark-text);
+}
+
+body.dark-theme .stat-card h3 {
+    color: var(--dark-text);
+}
+
+body.dark-theme .stat-card p {
+    color: var(--secondary-color);
+}
+
+body.dark-theme .no-tasks {
+    color: #aaa;
+}
+
+body.dark-theme .header-content p {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+body.dark-theme .setting-item {
+    background: var(--dark-surface);
+    color: var(--dark-text);
+}
+
+body.dark-theme .edit-form {
+    background: #2d2d2d;
+    color: var(--dark-text);
+}
+
+body.dark-theme .privacy-notice {
+    border-top-color: #333;
+    color: #aaa;
+}
+
+body.dark-theme .privacy-section {
+    border-bottom-color: #333;
+}
+
+body.dark-theme .privacy-section h2 {
+    color: var(--secondary-color);
+}
+
+body.dark-theme .calendar-container {
+    background: var(--dark-surface);
+    color: var(--dark-text);
+}
+
+/* Warna untuk link di tema gelap */
+body.dark-theme a,
+body.dark-theme .forgot-password a,
+body.dark-theme .register-section a,
+body.dark-theme .welcome-footer a,
+body.dark-theme .privacy-notice a {
+    color: var(--secondary-color);
+}
+
+body.dark-theme .btn-outline {
+    background-color: transparent;
+    border: 1px solid var(--secondary-color);
+    color: var(--secondary-color);
+}
+
+body.dark-theme .btn-outline:hover {
+    background-color: var(--secondary-color);
+    color: var(--dark-bg);
+}
+
+
+body.dark-theme .task-card .task-course {
+    background: #333;
+    color: var(--dark-text);
+}
+
+body.dark-theme .task-card .task-deadline {
+    color: var(--dark-text);
+}
+
+body.dark-theme .stat-card h3 {
+    color: var(--dark-text);
+}
+
+body.dark-theme .stat-card p {
+    color: var(--secondary-color);
+}
+
+body.dark-theme .no-tasks {
+    color: #aaa;
+}
+
+body.dark-theme .header-content p {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+body.dark-theme .setting-item {
+    background: var(--dark-surface);
+}
+
+body.dark-theme .edit-form {
+    background: #2d2d2d;
+}
+
+body.dark-theme .privacy-notice {
+    border-top-color: #333;
+    color: #aaa;
+}
+
+body.dark-theme .privacy-section {
+    border-bottom-color: #333;
+}
+
+body.dark-theme .privacy-section h2 {
+    color: var(--secondary-color);
+}
+
+body.dark-theme .calendar-container {
+    background: var(--dark-surface);
+    color: var(--dark-text);
+}
+
+/* Warna untuk link di tema gelap */
+body.dark-theme a,
+body.dark-theme .forgot-password a,
+body.dark-theme .register-section a,
+body.dark-theme .welcome-footer a,
+body.dark-theme .privacy-notice a {
+    color: var(--secondary-color);
+}
+
+body.dark-theme .btn-outline {
+    background-color: transparent;
+    border: 1px solid var(--secondary-color);
+    color: var(--secondary-color);
+}
+
+body.dark-theme .btn-outline:hover {
+    background-color: var(--secondary-color);
+    color: var(--dark-bg);
+}
+
+/* Kalender */
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendar-container {
+    background: var(--bg-white);
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.calendar-day:hover:not(.empty) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    background-color: #f8fff8;
+}
+
+.calendar-day.empty {
+    background-color: var(--bg-light);
+    border-color: transparent;
+    cursor: default;
+    color: #ccc;
+}
+
+.calendar-day.empty:hover {
+    background-color: var(--bg-light);
+    transform: none;
+    box-shadow: none;
+}
+
+.calendar-day.prev-month,
+.calendar-day.next-month {
+    background-color: var(--bg-light);
+    color: #aaa;
+}
+
+.calendar-day.prev-month:hover,
+.calendar-day.next-month:hover {
+    background-color: #e8f5e8;
+    color: var(--text-light);
+}
+
+.calendar-day.today {
+    background-color: #e6f7ff;
+    border-color: var(--primary-color);
+    font-weight: bold;
+    position: relative;
+}
+
+.calendar-day.selected {
+    background-color: #d1e7ff;
+    border-color: var(--secondary-color);
+    font-weight: bold;
+}
+
+.day-number {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 2px;
+}
+
+.task-indicators {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: auto;
+    width: 100%;
+}
+
+.task-indicator {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    margin-top: 2px;
+}
+
+.more-indicator {
+    font-size: 0.6rem;
+    color: var(--primary-color);
+    margin-top: 2px;
+}
+
+.calendar-day.has-deadline::after {
+    content: '';
+    position: absolute;
+    bottom: 4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+}
+
+/* Styling untuk halaman profil */
+.profile-card {
+    background: var(--bg-white);
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    position: relative;
+}
+
+.profile-photo-container {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.profile-photo-placeholder {
+    width: 100px;
+    height: 100px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+    color: white;
+    font-size: 3rem;
+    border: 3px solid var(--bg-white);
+    overflow: hidden;
+}
+
+.profile-photo-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.change-photo-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.profile-details h2 {
+    font-size: 1.4rem;
+    margin: 10px 0 5px;
+    color: var(--text-dark);
+}
+
+.user-id,
+.user-email,
+.user-major {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin: 3px 0;
+}
+
+.user-id {
+    font-weight: 500;
+}
+
+.setting-group {
+    margin-bottom: 30px;
+}
+
+.setting-group h3 {
+    font-size: 1.1rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--bg-light);
+}
+
+.setting-item {
+    background: var(--bg-white);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+    overflow: hidden;
+}
+
+.setting-header {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.setting-header:hover {
+    background-color: var(--bg-light);
+}
+
+.setting-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    background: var(--bg-light);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+    color: var(--primary-color);
+    font-size: 0.9rem;
+}
+
+.setting-icon.danger {
+    background: #ffebee;
+    color: #f44336;
+}
+
+.setting-content {
+    flex: 1;
+}
+
+.setting-content h4 {
+    font-size: 1rem;
+    margin-bottom: 3px;
+    color: var(--text-dark);
+}
+
+.setting-content p {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin: 0;
+}
+
+.setting-action {
+    color: var(--text-light);
+    margin-left: 10px;
+}
+
+.toggle-setting .setting-action {
+    margin-left: auto;
+}
+
+.link-setting {
+    text-decoration: none;
+    color: inherit;
+}
+
+.link-setting:hover {
+    text-decoration: none;
+}
+
+.danger-setting .setting-content h4,
+.danger-setting .setting-content p {
+    color: #f44336;
+}
+
+.danger-setting .setting-header:hover {
+    background-color: #ffebee;
+}
+
+.edit-form {
+    padding: 15px;
+    background: var(--bg-light);
+    display: none;
+}
+
+.edit-form input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 10px;
+    font-size: 1rem;
+}
+
+.edit-form input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+}
+
+.photo-preview {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.current-photo-preview {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #ddd;
+}
+
+.form-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.form-actions .btn {
+    flex: 1;
+    padding: 10px;
+    font-size: 0.9rem;
+}
+
+.logout-btn {
+    width: 100%;
+    margin-top: 20px;
+    padding: 14px;
+    font-size: 1rem;
+}
+
+.logout-btn i {
+    margin-right: 8px;
+}
+
+/* Group untuk pengaturan berbahaya */
+.danger-zone h3 {
+    color: #f44336;
+}
+
+.danger-zone .setting-header:hover {
+    background-color: #ffebee;
+}
+
+/* Untuk tema gelap */
+body.dark-theme .profile-card {
+    background: var(--dark-surface);
+    color: var(--dark-text);
+}
+
+body.dark-theme .setting-group h3 {
+    color: var(--secondary-color);
+    border-bottom-color: #333;
+}
+
+body.dark-theme .setting-item {
+    background: var(--dark-surface);
+    color: var(--dark-text);
+}
+
+body.dark-theme .profile-details h2 {
+    color: var(--dark-text);
+}
+
+body.dark-theme .user-id,
+body.dark-theme .user-email,
+body.dark-theme .user-major {
+    color: #ccc;
+}
+
+body.dark-theme .setting-header:hover {
+    background-color: #2a2a2a;
+}
+
+body.dark-theme .setting-icon {
+    background: #333;
+    color: var(--secondary-color);
+}
+
+body.dark-theme .edit-form {
+    background: #2d2d2d;
+    color: var(--dark-text);
+}
+
+body.dark-theme .danger-setting .setting-content h4,
+body.dark-theme .danger-setting .setting-content p {
+    color: #ff8a80;
+}
+
+body.dark-theme .danger-setting .setting-header:hover {
+    background-color: #3a2d2d;
+}
+
+body.dark-theme .danger-zone h3 {
+    color: #ff8a80;
+}
+
+body.dark-theme .current-photo-preview {
+    border-color: #444;
+}
+
+.calendar-day.priority-mendesak::after {
+    background-color: var(--danger-color); /* Merah untuk mendesak */
+}
+
+.calendar-day.priority-tinggi::after {
+    background-color: var(--warning-color); /* Kuning untuk tinggi */
+}
+
+.calendar-day.priority-sedang::after {
+    background-color: var(--info-color); /* Biru muda untuk sedang */
+}
+
+.calendar-day.priority-rendah::after {
+    background-color: #6c757d; /* Abu-abu untuk rendah */
+}
+
+.daily-tasks {
+    margin-top: 25px;
+}
+
+.daily-tasks h2 {
+    margin-bottom: 15px;
+    color: var(--text-dark);
+    font-size: 1.2rem;
+}
+
+#daily-tasks-list {
+    background: var(--bg-white);
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Toggle Switches for Settings */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 54px;
+    height: 28px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #d1d1d1;
+    transition: .4s;
+    border-radius: 34px;
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+}
+
+input:checked + .slider {
+    background-color: var(--primary-color);
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.5);
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+    background-color: white;
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* Add distinct visual indicators for on/off states */
+input:not(:checked) + .slider {
+    background-color: #d1d1d1;
+}
+
+input:checked + .slider:after {
+    content: "ON";
+    position: absolute;
+    left: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 0.6rem;
+    font-weight: bold;
+}
+
+input:not(:checked) + .slider:after {
+    content: "OFF";
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #666;
+    font-size: 0.6rem;
+    font-weight: bold;
+}
+
+/* Enhanced styling for task checkboxes */
+.task-checkbox {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--text-light);
+    border-radius: 4px;
+    background-color: white;
+    cursor: pointer;
+    margin-right: 10px;
+    appearance: none;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.task-checkbox:checked {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.task-checkbox:checked::after {
+    content: "✓";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.task-checkbox:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(0, 51, 102, 0.3);
+}
+
+.task-checkbox:checked:hover {
+    box-shadow: 0 0 5px rgba(0, 51, 102, 0.5);
+}
+
+/* Specific styling for the actual logo */
+.logo-img {
+    width: 80px;              /* Lebar logo */
+    height: 80px;             /* Tinggi logo */
+    object-fit: contain;      /* Mengatur bagaimana gambar ditampilkan */
+    border-radius: 50%;       /* Membuat bentuk lingkaran */
+}
+
+/* Gambar default styling */
+img[alt="Logo UNPER"] {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+/* Responsif */
+@media (max-width: 480px) {
+    .app-container {
+        padding: 0;
+    }
+
+    .quick-stats {
+        flex-direction: column;
+    }
+
+    .main-content {
+        padding: 15px;
+    }
+
+    .calendar-grid {
+        gap: 3px;
+    }
+
+    .calendar-day {
+        padding: 3px;
+        min-height: 35px;
+        font-size: 0.8rem;
+    }
+
+    .day-number {
+        font-size: 0.8rem;
+    }
+}

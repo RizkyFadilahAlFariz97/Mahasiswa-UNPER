@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Pengguna - Mahasiswa UNPER</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="main-header">
+            <div class="header-content">
+                <h1>Profil Saya</h1>
+                <p>Atur informasi pribadi dan pengaturan aplikasi</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Profile Info Section -->
+            <section class="profile-info">
+                <div class="profile-card">
+                    <div class="profile-photo-container">
+                        <div class="profile-photo-placeholder" id="profile-photo-display">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <button id="change-photo-btn" class="change-photo-btn" title="Ganti Foto">
+                            <i class="fas fa-camera"></i>
+                        </button>
+                    </div>
+
+                    <div class="profile-details">
+                        <h2 id="user-name">Nama Pengguna</h2>
+                        <p class="user-id" id="user-id">NIM: 1234567890</p>
+                        <p class="user-email" id="user-email">Email: user@example.com</p>
+                        <p class="user-major" id="user-major">Informatika, Fakultas Teknologi Informasi</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Profile Settings Section -->
+            <section class="settings-section">
+                <div class="setting-group">
+                    <h3>Informasi Akun</h3>
+
+                    <div class="setting-item">
+                        <div class="setting-header" data-target="name-edit-form">
+                            <div class="setting-icon">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="setting-content">
+                                <h4>Nama Lengkap</h4>
+                                <p id="display-name">Nama Pengguna</p>
+                            </div>
+                            <div class="setting-action">
+                                <i class="fas fa-chevron-right"></i>
+                            </div>
+                        </div>
+                        <div id="name-edit-form" class="edit-form">
+                            <input type="text" id="new-name" name="new-name" placeholder="Nama baru" required>
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-outline cancel-btn" data-form="name-edit-form">Batal</button>
+                                <button type="button" class="btn btn-primary save-btn" data-form="name-edit-form">Simpan</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="setting-item">
+                        <div class="setting-header" data-target="email-edit-form">
+                            <div class="setting-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="setting-content">
+                                <h4>Email</h4>
+                                <p id="display-email">user@example.com</p>
+                            </div>
+                            <div class="setting-action">
+                                <i class="fas fa-chevron-right"></i>
+                            </div>
+                        </div>
+                        <div id="email-edit-form" class="edit-form">
+                            <input type="email" id="new-email" name="new-email" placeholder="Email baru" required>
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-outline cancel-btn" data-form="email-edit-form">Batal</button>
+                                <button type="button" class="btn btn-primary save-btn" data-form="email-edit-form">Simpan</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="setting-item">
+                        <div class="setting-header" data-target="password-edit-form">
+                            <div class="setting-icon">
+                                <i class="fas fa-lock"></i>
+                            </div>
+                            <div class="setting-content">
+                                <h4>Kata Sandi</h4>
+                                <p>Ubah kata sandi akun Anda</p>
+                            </div>
+                            <div class="setting-action">
+                                <i class="fas fa-chevron-right"></i>
+                            </div>
+                        </div>
+                        <div id="password-edit-form" class="edit-form">
+                            <input type="password" id="current-password" name="current-password" placeholder="Sandi saat ini" required>
+                            <input type="password" id="new-password" name="new-password" placeholder="Sandi baru" required>
+                            <input type="password" id="confirm-password" name="confirm-password" placeholder="Konfirmasi sandi baru" required>
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-outline cancel-btn" data-form="password-edit-form">Batal</button>
+                                <button type="button" class="btn btn-primary save-btn" data-form="password-edit-form">Simpan</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="setting-item">
+                        <div class="setting-header" data-target="photo-edit-form">
+                            <div class="setting-icon">
+                                <i class="fas fa-image"></i>
+                            </div>
+                            <div class="setting-content">
+                                <h4>Foto Profil</h4>
+                                <p>Ubah foto profil Anda</p>
+                            </div>
+                            <div class="setting-action">
+                                <i class="fas fa-chevron-right"></i>
+                            </div>
+                        </div>
+                        <div id="photo-edit-form" class="edit-form">
+                            <div class="photo-preview">
+                                <img id="current-photo" src="" alt="Foto Profil Saat Ini" class="current-photo-preview">
+                            </div>
+                            <input type="file" id="profile-photo" name="profile-photo" accept="image/*">
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-outline cancel-btn" data-form="photo-edit-form">Batal</button>
+                                <button type="button" class="btn btn-primary save-btn" data-form="photo-edit-form">Simpan</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="setting-group">
+                    <h3>Pengaturan Aplikasi</h3>
+
+                    <div class="setting-item toggle-setting">
+                        <div class="setting-header">
+                            <div class="setting-icon">
+                                <i class="fas fa-moon"></i>
+                            </div>
+                            <div class="setting-content">
+                                <h4>Tema Gelap</h4>
+                                <p>Aktifkan mode gelap untuk aplikasi</p>
+                            </div>
+                            <div class="setting-action">
+                                <label class="switch">
+                                    <input type="checkbox" id="dark-theme-toggle">
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="setting-item toggle-setting">
+                        <div class="setting-header">
+                            <div class="setting-icon">
+                                <i class="fas fa-bell"></i>
+                            </div>
+                            <div class="setting-content">
+                                <h4>Notifikasi</h4>
+                                <p>Aktifkan notifikasi aplikasi</p>
+                            </div>
+                            <div class="setting-action">
+                                <label class="switch">
+                                    <input type="checkbox" id="notifications-toggle" checked>
+                                    <span class="slider round"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="privacy-policy.html" class="setting-item link-setting">
+                        <div class="setting-header">
+                            <div class="setting-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <div class="setting-content">
+                                <h4>Kebijakan Privasi</h4>
+                                <p>Baca kebijakan privasi aplikasi</p>
+                            </div>
+                            <div class="setting-action">
+                                <i class="fas fa-chevron-right"></i>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="help_guide.html" class="setting-item link-setting">
+                        <div class="setting-header">
+                            <div class="setting-icon">
+                                <i class="fas fa-question-circle"></i>
+                            </div>
+                            <div class="setting-content">
+                                <h4>Bantuan & Panduan</h4>
+                                <p>Cara menggunakan aplikasi</p>
+                            </div>
+                            <div class="setting-action">
+                                <i class="fas fa-chevron-right"></i>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="about_app.html" class="setting-item link-setting">
+                        <div class="setting-header">
+                            <div class="setting-icon">
+                                <i class="fas fa-info-circle"></i>
+                            </div>
+                            <div class="setting-content">
+                                <h4>Tentang Aplikasi</h4>
+                                <p>Info tentang aplikasi ini</p>
+                            </div>
+                            <div class="setting-action">
+                                <i class="fas fa-chevron-right"></i>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="setting-group danger-zone">
+                    <h3>Aksi Berbahaya</h3>
+
+                    <div class="setting-item danger-setting">
+                        <div class="setting-header" id="delete-account-trigger">
+                            <div class="setting-icon danger">
+                                <i class="fas fa-trash-alt"></i>
+                            </div>
+                            <div class="setting-content">
+                                <h4>Hapus Akun</h4>
+                                <p>Hapus akun dan semua data Anda</p>
+                            </div>
+                            <div class="setting-action">
+                                <i class="fas fa-chevron-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <button class="btn btn-primary logout-btn" id="logout-btn">
+                <i class="fas fa-sign-out-alt"></i> Keluar
+            </button>
+        </main>
+
+        <!-- Bottom Navigation -->
+        <nav class="bottom-nav">
+            <a href="home.html" class="nav-item">
+                <i class="fas fa-home"></i>
+                <span>Beranda</span>
+            </a>
+            <a href="calendar.html" class="nav-item">
+                <i class="fas fa-calendar"></i>
+                <span>Kalender</span>
+            </a>
+            <a href="add_task.html" class="nav-item">
+                <i class="fas fa-plus-circle"></i>
+                <span>Tambah</span>
+            </a>
+            <a href="tasks.html" class="nav-item">
+                <i class="fas fa-tasks"></i>
+                <span>Tugas</span>
+            </a>
+            <a href="profile.html" class="nav-item active">
+                <i class="fas fa-user"></i>
+                <span>Profil</span>
+            </a>
+        </nav>
+    </div>
+
+    <script src="js/profile.js"></script>
+</body>
+</html>
